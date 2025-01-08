@@ -17,13 +17,13 @@ This project is built with Python 3.13 and theoretically supports most Python3 v
 ### Install Dependencies (skip if already installed)
 
 ```bash
-    pip3 install requests
+pip3 install requests
 ```
 
 ### Clone the Project
 
 ```bash
-    git clone --depth=1 https://github.com/jhll1124/cqupt-courseizer.git
+git clone --depth=1 https://github.com/jhll1124/cqupt-courseizer.git
 ```
 
 > You can also directly Download Zip

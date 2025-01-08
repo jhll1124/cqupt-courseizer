@@ -19,13 +19,13 @@
 ### 安装依赖（已安装可以跳过）
 
 ```bash
-    pip3 install requests
+pip3 install requests
 ```
 
 ### 克隆项目
 
 ```bash
-    git clone --depth=1 https://github.com/jhll1124/cqupt-courseizer.git
+git clone --depth=1 https://github.com/jhll1124/cqupt-courseizer.git
 ```
 
 > 当然也可以直接 Download Zip
