@@ -6,17 +6,19 @@
 
 简体中文 | [English](/README_en-US.md)
 
-## 使用说明
+## 项目简介
 
-本脚本可以让你解放双手，并且比别人更快一步！  
+本 Python 脚本可以让你解放双手，并且比别人更快一步！  
 可以搜索交叉通识课（人文社会科学，自然科学与技术）中包含指定关键字的课程并且自动开始并发抢课  
-目前未支持培养方案课程~~因为不想学也得学~~
+目前未支持培养方案课程 ~~因为不想学也得学~~
 
 ## 从源码构建
 
-本项目使用 Python 3.13 构建，理论上支持绝大多数 Python3 版本
+本项目使用 Python 3.13 构建，理论上支持 3.6 以上版本
 
 ### 安装依赖（已安装可以跳过）
+
+> 如果你还没有 Python 解释器，前往[官网](https://www.python.org/downloads/)下载
 
 ```bash
 pip3 install requests
@@ -30,19 +32,25 @@ git clone --depth=1 https://github.com/jhll1124/cqupt-courseizer.git
 
 > 当然也可以直接 Download Zip
 
-### 更改 main.py 中主函数的 cookie 和 search_ls
+```bash
+wget https://github.com/jhll1124/cqupt-courseizer/archive/refs/heads/main.zip
+```
+
+### 更改 `main.py` 中主函数的 `cookie` 和 `search_ls`
 
 就可以开始愉快の抢课辣！  
+对 search_ls 中的每个字符串，只要课程信息包含就会去抢，支持课程 id、名称、授课教师等
+为了确保准确性，不支持模糊搜索
 默认 0.5 秒抢一次，可以更改 `grabber.py` 中 `loop_rob` 函数的参数更改时间间隔
 
-> 为防止滥用，cookie 和课程列表需要自己获取，源码中的 cookie 仅为实例
+> 为防止滥用，cookie 和课程列表需要自己获取，源码中的 cookie 仅为示例
 
 ## 获取 cookie
 
 几种方法任选其一
 
 1. 浏览器按 F12 打开开发者工具，在网络标签选择一个请求，在请求标头中找
-2. 在浏览器的地址栏输入：`javascript:alert(document.cookie)` (不区分大小写)~~（可能会被浏览器吃掉一部分）~~
+2. 在浏览器的地址栏输入：`javascript:alert(document.cookie)` (不区分大小写) ~~（可能会被浏览器吃掉一部分）~~
 3. 通过浏览器插件[Cookie-Editor](https://chromewebstore.google.com/detail/cookie-editor/hlkenndednhfkekhgcdicdfddnkalmdm)
 
 ## Tips
