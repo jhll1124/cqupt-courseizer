@@ -26,7 +26,7 @@ the program cannot be stopped unless forcefully terminated.'''
     while True:
         try:
             queryer.all_renwen(cookie)
-            if queryer.ls.__len__() == 0:
+            if len(queryer.ls) == 0:
                 logging.error("No courses found")
                 time.sleep(0.5)
                 continue
@@ -44,18 +44,12 @@ the program cannot be stopped unless forcefully terminated.'''
     # grab normally
     def th(lds):
         tool.grabber.loop_rob(cookie, lds, 3) # mode
-    for i in range(loads.__len__()):
-        threading.Thread(target=th, args=(loads,)).start()
+    threading.Thread(target=th, args=(loads,)).start()
 
 if __name__ == "__main__":
     #! Please check again the cookie and mode
     cookie = "PHPSESSID=ST-3166783-5rd0EWOZrKPJ49z9WD0WxcPjKhsauthserver2"
     search_ls = [
-        "软陶",
-        "宇宙的奥秘",
-        "职场心理学",
-        "民间剪纸",
-        "三维建模",
         "AIGC 艺术鉴赏",
         "象棋"
     ]

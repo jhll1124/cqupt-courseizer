@@ -58,7 +58,7 @@ class Queryer:
         self.ls.append(content)
     
     def ls2ld(self, search_str_ls):
-        for j in range(search_str_ls.__len__()):
+        for j in range(len(search_str_ls)):
             for i in self.ls:
                 if search_str_ls[j] in i:
                     self.ld.append(i)
