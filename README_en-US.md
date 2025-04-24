@@ -41,7 +41,7 @@ wget https://github.com/jhll1124/cqupt-courseizer/archive/refs/heads/main.zip
 Then you can start grabbing courses happily!  
 For each string in search_ls, as long as the course information contains it, it will grab the course. It supports course id, name, instructor, etc.  
 To ensure accuracy, fuzzy search is not supported.  
-By default, it grabs every 0.5 seconds. You can change the interval by modifying the parameters of the `loop_rob` function in `grabber.py`.
+There are three pre-programmed robbing speeds, and the interval can be changed by modifying the `mode` parameter of the `loop_rob` function.  
 
 > To prevent abuse, you need to obtain the cookie and course list yourself. The cookie in the source code is just an example.
 

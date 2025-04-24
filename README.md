@@ -41,7 +41,7 @@ wget https://github.com/jhll1124/cqupt-courseizer/archive/refs/heads/main.zip
 就可以开始愉快の抢课辣！  
 对 search_ls 中的每个字符串，只要课程信息包含就会去抢，支持课程 id、名称、授课教师等  
 为了确保准确性，不支持模糊搜索  
-默认 0.5 秒抢一次，可以更改 `grabber.py` 中 `loop_rob` 函数的参数更改时间间隔  
+预制了三档抢课速度，修改 `loop_rob` 函数的 `mode` 参数可以更改时间间隔  
 
 > 为防止滥用，cookie 和课程列表需要自己获取，源码中的 cookie 仅为示例
 
