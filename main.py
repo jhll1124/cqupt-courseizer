@@ -41,15 +41,22 @@ the program cannot be stopped unless forcefully terminated.'''
 
     logging.info("Courses found")
     print(loads)
-    # grab normally
-    def th(lds):
-        tool.grabber.loop_rob(cookie, lds, 3) # mode
-    threading.Thread(target=th, args=(loads,)).start()
+    # grab launch!
+    def th(lds, i, mode):
+        tool.grabber.loop_rob(cookie, lds, i, mode)
+    for i in range(len(loads)):
+        threading.Thread(target=th, args=(loads[i], i+1, mode)).start()
 
 if __name__ == "__main__":
     #! Please check again the cookie and mode
-    cookie = "PHPSESSID=ST-3166783-5rd0EWOZrKPJ49z9WD0WxcPjKhsauthserver2"
+    # mode\n1 - speed, 2 - slow, 3 - 捡漏, else - sep=mode
+    cookie = "PHPSESSID=ST-3172428-4CJV3uA51x9vwCZvtJ3Hb-2erm4authserver2"
+    mode = 3
     search_ls = [
+        "软陶",
+        "宇宙的奥秘",
+        "民间剪纸",
+        "三维建模",
         "AIGC 艺术鉴赏",
         "象棋"
     ]

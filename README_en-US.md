@@ -59,6 +59,10 @@ Choose one of the following methods:
 2. The server resets the session every few hours (currently unclear), so you need to refill the cookie.
 3. This version is still in testing. If there are any bugs, please submit an issue.
 
+## Screenshot
+
+![example](example.png)
+
 ## Other Features
 
 Explore the source code yourself~ ~~Definitely not because I'm lazy~~.

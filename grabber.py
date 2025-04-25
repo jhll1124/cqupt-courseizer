@@ -37,7 +37,7 @@ class Grabber:
     def single_rob_with_info(self, cookie, load):
         logging.info(self.single_rob(cookie, load))
 
-    def loop_rob(self, cookie, loads, mode=1):
+    def loop_rob(self, cookie, load, idx, mode=1):
         '''mode\n1 - speed, 2 - slow, 3 - 捡漏, else - sep=mode'''
         attempt = 1
         sep = 0.25
@@ -47,19 +47,14 @@ class Grabber:
             sep = 100
         elif mode != 1:
             sep = mode
+        logging.info(f"Course {idx} started")
         while True:
-            logging.info(f"Roll {attempt} started")
-            for idx, load in enumerate(loads):
-                info = self.single_rob(cookie, load)
-                if info == "ok":
-                    logging.info(f"Attempt {idx + 1}: {info}")
-                    logging.info("\033[31m抢课成功\033[0m")
-                    return
-                else:
-                    logging.info(f"Attempt {idx + 1}: {info}")
-                time.sleep(0.5)
-            
-            logging.info(f"Roll {attempt} failed")
+            info = self.single_rob(cookie, load)
+            if info == "ok":
+                logging.info(f"\033[31mCourse {idx} 抢课成功\033[0m")
+                return
+            else:
+                logging.info(f"Attempt {idx}-{attempt}: {info}")
             time.sleep(sep)
             attempt += 1
 
