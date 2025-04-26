@@ -22,26 +22,26 @@ the program cannot be stopped unless forcefully terminated.'''
     tool = miHomo()
 
     queryer = tool.queryer
-    # query for loop  
+    # query for loop
     while True:
         try:
             logging.info("开始查询人文课程...")
             queryer.all_renwen(cookie)
-            if queryer.ls.__len__() == 0:
+            if len(queryer.ls) == 0:
                 logging.error("未找到人文课程，请检查Cookie和网络连接")
                 time.sleep(0.5)
                 continue
                 
             logging.info("开始查询自然课程...")
             queryer.all_ziran(cookie)
-            if queryer.ls.__len__() == 0:
+            if len(queryer.ls) == 0:
                 logging.error("未找到自然课程，请检查Cookie和网络连接")
                 time.sleep(0.5)
                 continue
                 
             logging.info("开始查询班级课程...")
             queryer.all_banji(cookie)
-            if queryer.ls.__len__() == 0:
+            if len(queryer.ls) == 0:
                 logging.error("未找到班级课程，请检查Cookie和网络连接")
                 time.sleep(0.5)
                 continue
@@ -72,16 +72,16 @@ the program cannot be stopped unless forcefully terminated.'''
         threading.Thread(target=th, args=(loads[i], i+1, mode)).start()
 
 if __name__ == "__main__":
-    #! 请检查cookie是否有效，cookie通常会在一段时间后过期
-    # 格式应该为: PHPSESSID=xxxxx
+    #! 请检查 cookie 和 mode，注意事项详情请查看 readme
     cookie = "PHPSESSID=ST-3465842-xaFBpis9iKxSP-TYZzxHeMB-dSgauthserver1"
     mode = 1
     # 设置要搜索的课程关键词
     search_ls = [
-        "知识产权保护",
-        "汇编语言程序设计",
-        "张杰",
-        "形势与政策"
+        "软陶",
+        "宇宙的奥秘",
+        "民间剪纸",
+        "三维建模",
+        "AIGC 艺术鉴赏",
+        "象棋"
     ]
-    
     main()

@@ -15,8 +15,7 @@ class Queryer:
         
         while retry_count < max_retries:
             try:
-                url = f"http://xk2.cqupt.edu.cn/json-data-yxk.php?type={query_str}"
-                # url = f"https://jhll.fun:4430/file/json-data-yxk_jcts{query_str}.json"
+                url = f"http://xk1.cqupt.edu.cn/json-data-yxk.php?type={query_str}"
                 
                 headers = {
                     "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
@@ -111,7 +110,7 @@ class Queryer:
         self.ls.append(content)
     
     def ls2ld(self, search_str_ls):
-        for j in range(search_str_ls.__len__()):
+        for j in range(len(search_str_ls)):
             for i in self.ls:
                 if search_str_ls[j] in i:
                     self.ld.append(i)
