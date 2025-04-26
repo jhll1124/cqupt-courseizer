@@ -10,7 +10,7 @@ This English document is translated with the support of GitHub Copilot.
 
 This Python script can free your hands and get you ahead of others!  
 It can search for courses containing specified keywords in the cross-disciplinary general education courses (Humanities and Social Sciences, Natural Sciences and Technology) and automatically start concurrent course selection.  
-Currently, it does not support required courses ~~because you have to take them anyway~~.
+Currently, it does not support required courses ~~because you have to take them anyway~~.  
 Now supports required courses because some professional elective courses in certain majors are ~~too hard to grab~~.
 
 ## Build from Source
