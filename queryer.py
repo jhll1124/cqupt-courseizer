@@ -90,7 +90,7 @@ class Queryer:
                 self.write2ls(load)
 
     def all_banji(self, cookie):
-        body_data = self.request("Bj", cookie)
+        body_data = self.request("bj", cookie)
         if body_data:
             class_info = ClassInfos.from_dict(body_data)
             for item in class_info.data:
