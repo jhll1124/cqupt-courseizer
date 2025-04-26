@@ -65,24 +65,23 @@ the program cannot be stopped unless forcefully terminated.'''
         logging.info(f"课程 {i+1}: {load}")
     
     
-    # grab normally
-    def th(lds):
-        tool.grabber.loop_rob(cookie, lds, 3) # mode
-    
-    for i in range(loads.__len__()):
-        threading.Thread(target=th, args=(loads,)).start()
-        logging.info(f"启动抢课线程 {i+1}")
+    # grab launch!
+    def th(lds, i, mode):
+        tool.grabber.loop_rob(cookie, lds, i, mode)
+    for i in range(len(loads)):
+        threading.Thread(target=th, args=(loads[i], i+1, mode)).start()
 
 if __name__ == "__main__":
     #! 请检查cookie是否有效，cookie通常会在一段时间后过期
     # 格式应该为: PHPSESSID=xxxxx
-    cookie = "PHPSESSID=ST-3464282-yNvBjlTfphxyjnYuRsBCg6Kxf3Iauthserver1"
-    
+    cookie = "PHPSESSID=ST-3465842-xaFBpis9iKxSP-TYZzxHeMB-dSgauthserver1"
+    mode = 1
     # 设置要搜索的课程关键词
     search_ls = [
         "知识产权保护",
         "汇编语言程序设计",
-        "张杰"
+        "张杰",
+        "形势与政策"
     ]
     
     main()
