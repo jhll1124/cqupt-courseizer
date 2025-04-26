@@ -9,15 +9,15 @@ class Grabber:
         self.lock = threading.Lock()
 
     def single_rob(self, cookie, load):
-        url = "http://xk1.cqupt.edu.cn/post.php"
+        url = "http://xk2.cqupt.edu.cn/post.php"
         headers = {
             "Accept": "application/json, text/javascript, */*; q=0.01",
             "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
             "Connection": "keep-alive",
             "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
             "Cookie": cookie,
-            "Origin": "http://xk1.cqupt.edu.cn",
-            "Referer": "http://xk1.cqupt.edu.cn/yxk.php",
+            "Origin": "http://xk2.cqupt.edu.cn",
+            "Referer": "http://xk2.cqupt.edu.cn/yxk.php",
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0",
             "X-Requested-With": "XMLHttpRequest"
         }
@@ -37,7 +37,7 @@ class Grabber:
     def single_rob_with_info(self, cookie, load):
         logging.info(self.single_rob(cookie, load))
 
-    def loop_rob(self, cookie, load, idx, mode=1):
+    def loop_rob(self, cookie, loads, mode=1):
         '''mode\n1 - speed, 2 - slow, 3 - 捡漏, else - sep=mode'''
         attempt = 1
         sep = 0.25
@@ -47,14 +47,19 @@ class Grabber:
             sep = 100
         elif mode != 1:
             sep = mode
-        logging.info(f"Course {idx} started")
         while True:
-            info = self.single_rob(cookie, load)
-            if info == "ok":
-                logging.info(f"\033[31mCourse {idx} 抢课成功\033[0m")
-                return
-            else:
-                logging.info(f"Attempt {idx}-{attempt}: {info}")
+            logging.info(f"Roll {attempt} started")
+            for idx, load in enumerate(loads):
+                info = self.single_rob(cookie, load)
+                if info == "ok":
+                    logging.info(f"Attempt {idx + 1}: {info}")
+                    logging.info("\033[31m抢课成功\033[0m")
+                    return
+                else:
+                    logging.info(f"Attempt {idx + 1}: {info}")
+                time.sleep(0.5)
+            
+            logging.info(f"Roll {attempt} failed")
             time.sleep(sep)
             attempt += 1
 
