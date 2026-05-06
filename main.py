@@ -1,8 +1,10 @@
 import logging
 import threading
 import time
+import sys
 import queryer
 import grabber
+from config_loader import ConfigLoader
 
 
 class miHomo:
@@ -18,7 +20,26 @@ def main():
 search_ls and connection to the host. \
 Because of the multi-threading, \
 the program cannot be stopped unless forcefully terminated.'''
-    logging.basicConfig(level=logging.INFO)
+    
+    # 加载配置文件
+    config_loader = ConfigLoader("config.yml")
+    config = config_loader.load()
+    
+    # 从配置文件获取参数
+    cookie = config_loader.get_cookie()
+    mode = config_loader.get_mode()
+    search_ls = config_loader.get_courses()
+    
+    # 设置日志级别
+    logging.basicConfig(
+        level=config_loader.get_log_level(),
+        format='%(asctime)s - %(levelname)s - %(message)s'
+    )
+    
+    logging.info(f"已加载配置文件: config.yml")
+    logging.info(f"抢课模式: {mode}")
+    logging.info(f"目标课程数量: {len(search_ls)}")
+    
     tool = miHomo()
 
     queryer = tool.queryer
@@ -72,16 +93,4 @@ the program cannot be stopped unless forcefully terminated.'''
         threading.Thread(target=th, args=(loads[i], i+1, mode)).start()
 
 if __name__ == "__main__":
-    #! 请检查 cookie 和 mode，注意事项详情请查看 readme
-    cookie = "PHPSESSID=ST-3465842-xaFBpis9iKxSP-TYZzxHeMB-dSgauthserver1"
-    mode = 1
-    # 设置要搜索的课程关键词
-    search_ls = [
-        "软陶",
-        "宇宙的奥秘",
-        "民间剪纸",
-        "三维建模",
-        "AIGC 艺术鉴赏",
-        "象棋"
-    ]
     main()

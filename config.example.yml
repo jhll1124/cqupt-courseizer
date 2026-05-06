@@ -1,0 +1,28 @@
+# cqupt-courseizer 配置文件示例
+# 复制此文件为 config.yml 并填写你的配置
+
+# 教务系统 Cookie（必填）
+# 获取方法见 README.md
+cookie: "PHPSESSID=ST-3465842-xaFBpis9iKxSP-TYZzxHeMB-dSgauthserver1"
+
+# 抢课模式（可选，默认为 1）
+# 1 - 快速模式（0.25秒间隔）
+# 2 - 慢速模式（5秒间隔）
+# 3 - 捡漏模式（100秒间隔）
+# 或者直接填写数字作为自定义间隔秒数，如 0.5
+mode: 1
+
+# 要抢的课程关键词列表（必填）
+# 支持课程ID、课程名称、教师姓名等
+# 只要课程信息中包含关键词就会尝试抢课
+courses:
+  - "软陶"
+  - "宇宙的奥秘"
+  - "民间剪纸"
+  - "三维建模"
+  - "AIGC 艺术鉴赏"
+  - "象棋"
+
+# 日志级别（可选，默认为 INFO）
+# 可选值：DEBUG, INFO, WARNING, ERROR, CRITICAL
+log_level: "INFO"
