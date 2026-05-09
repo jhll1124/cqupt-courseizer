@@ -3,7 +3,7 @@
 
 # 教务系统 Cookie（必填）
 # 获取方法见 README.md
-cookie: "PHPSESSID=ST-3465842-xaFBpis9iKxSP-TYZzxHeMB-dSgauthserver1"
+cookie: "PHPSESSID=ST-1276595-mhCza3MsezDyld5YwXc0DmuHglMlocalhost"
 
 # 抢课模式（可选，默认为 1）
 # 1 - 快速模式（0.25秒间隔）
